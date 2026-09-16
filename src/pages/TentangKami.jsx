@@ -1,12 +1,12 @@
 import React from 'react';
 
 const pengurus = [
-  { jabatan: 'Ketua Umum', nama: 'H. Mahmud Atururi, S.H., M.H.', foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop' },
-  { jabatan: 'Sekretaris Umum', nama: 'Ir. Benyamin Arisoy, M.T.', foto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop' },
-  { jabatan: 'Bendahara Umum', nama: 'Dra. Susanti Rahayu, M.M.', foto: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200&auto=format&fit=crop' },
-  { jabatan: 'Ketua Bidang Pembinaan & Prestasi', nama: 'Yusuf Mandobar, M.Pd.', foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop' },
-  { jabatan: 'Ketua Bidang Organisasi', nama: 'Ahmad Fauzi, S.Pd.', foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop' },
-  { jabatan: 'Ketua Bidang Humas & Media', nama: 'Rizky Pratama, S.Kom.', foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop' },
+  { jabatan: 'Ketua Pengprov', nama: 'Rhaymond Karubaba', foto: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=200&auto=format&fit=crop' },
+  { jabatan: 'Wakil Ketua / Ketua Harian', nama: 'Rahaya Evendi, S.AN', foto: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=200&auto=format&fit=crop' },
+  { jabatan: 'Sekretaris', nama: 'Herry Clemens Korano', foto: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=200&auto=format&fit=crop' },
+  { jabatan: 'Wakil Sekretaris', nama: 'Samson Labok', foto: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?q=80&w=200&auto=format&fit=crop' },
+  { jabatan: 'Bendahara', nama: 'Steven M L Murafer, S.STP', foto: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=200&auto=format&fit=crop' },
+  { jabatan: 'Wakil Bendahara', nama: 'Ridha Rahmayanti Taran', foto: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=200&auto=format&fit=crop' },
 ];
 
 export default function TentangKami() {
