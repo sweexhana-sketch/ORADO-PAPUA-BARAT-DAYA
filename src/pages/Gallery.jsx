@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const photos = [
-  { id: 1, caption: 'Pengukuhan Pengprov ORADO Papua Barat Daya', cat: 'foto', img: 'https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop' },
+  { id: 1, caption: 'Pendaftaran dan supervisi ORADO di KONI Papua Barat Daya', cat: 'foto', img: '/koni_pbd.webp' },
   { id: 2, caption: 'Sosialisasi Domino 101 di Kota Sorong', cat: 'foto', img: 'https://images.unsplash.com/photo-1543269865-cbf427effbad?q=80&w=600&auto=format&fit=crop' },
   { id: 3, caption: 'Audiensi dengan Dinas Pemuda & Olahraga', cat: 'foto', img: 'https://images.unsplash.com/photo-1528605248644-14dd04022da1?q=80&w=600&auto=format&fit=crop' },
   { id: 4, caption: 'Pelatihan Wasit Domino Tingkat Provinsi', cat: 'foto', img: 'https://images.unsplash.com/photo-1552664730-d307ca884978?q=80&w=600&auto=format&fit=crop' },

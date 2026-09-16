@@ -4,9 +4,9 @@ export default function Home({ stats, pengcabList, onNavigate }) {
   // Data berita ORADO Papua Barat Daya
   const newsList = [
     {
-      title: "Pengprov ORADO Papua Barat Daya Resmi Dikukuhkan, Siap Kembangkan Domino di 6 Kabupaten/Kota",
-      date: "15 September 2026",
-      image: "https://images.unsplash.com/photo-1556761175-4b46a572b786?q=80&w=600&auto=format&fit=crop"
+      title: "Pendaftaran dan Supervisi ORADO di KONI Papua Barat Daya",
+      date: "29 Agustus 2026",
+      image: "/koni_pbd.webp"
     },
     {
       title: "ORADO Papua Barat Daya Audiensi dengan Dinas Pemuda dan Olahraga Provinsi, Siap Bersinergi",
