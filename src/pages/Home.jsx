@@ -50,7 +50,7 @@ export default function Home({ stats, pengcabList, onNavigate }) {
             {/* Logo on the left */}
             <div className="flex-1 flex justify-center md:justify-end shrink-0">
               <img 
-                src="/logo_sampul.png" 
+                src="/ok.png" 
                 alt="Logo ORADO Besar" 
                 className="w-64 md:w-80 h-auto object-contain drop-shadow-2xl" 
               />
