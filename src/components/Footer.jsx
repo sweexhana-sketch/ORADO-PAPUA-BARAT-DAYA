@@ -9,7 +9,7 @@ export default function Footer() {
           <img 
             alt="Logo ORADO" 
             className="max-w-full max-h-full object-contain" 
-            src="/logo.png" 
+            src="/logo_transparent.png"
           />
         </div>
         

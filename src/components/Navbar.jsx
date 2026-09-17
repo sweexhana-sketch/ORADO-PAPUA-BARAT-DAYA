@@ -51,7 +51,7 @@ export default function Navbar() {
             <img 
               alt="Logo ORADO" 
               className="h-16 sm:h-20 w-auto object-contain drop-shadow-sm" 
-              src="/logo.png" 
+              src="/logo_transparent.png" 
             />
             <div className="ml-3 hidden sm:flex flex-col">
               <span className="font-outfit text-xl text-primary font-bold leading-none tracking-tight">ORADO</span>

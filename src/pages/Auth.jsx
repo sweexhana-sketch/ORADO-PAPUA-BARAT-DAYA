@@ -22,7 +22,7 @@ export default function Auth() {
           {/* Logo */}
           <div className="flex flex-col items-center mb-6">
             <img
-              src="/logo.png"
+              src="/logo_transparent.png"
               alt="Logo ORADO"
               className="h-16 w-auto object-contain mb-2"
             />

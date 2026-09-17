@@ -23,7 +23,7 @@ export default function TentangKami() {
         {/* Hero + Deskripsi */}
         <div className="bg-white border border-slate-200 shadow-sm rounded-xl overflow-hidden">
           <div className="bg-[#0f3b5f] px-8 py-10 flex flex-col md:flex-row items-center gap-8">
-            <img src="/logo.png" alt="Logo ORADO" className="h-36 w-auto object-contain drop-shadow-xl shrink-0" />
+            <img src="/logo_transparent.png" alt="Logo ORADO" className="h-36 w-auto object-contain drop-shadow-xl shrink-0" />
             <div className="text-white text-center md:text-left">
               <h2 className="font-outfit text-3xl font-bold leading-tight">ORADO Papua Barat Daya</h2>
               <p className="font-outfit text-[#fbbf24] font-semibold mt-1">Federasi Olahraga Domino Nasional — Pengurus Provinsi Papua Barat Daya</p>
