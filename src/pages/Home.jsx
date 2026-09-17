@@ -38,29 +38,35 @@ export default function Home({ stats, pengcabList, onNavigate }) {
   return (
     <div className="flex flex-col bg-[#e6ecef]">
       {/* 1. Welcome Section */}
-      <div className="bg-white w-full py-16 md:py-24 shadow-sm mb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div 
+        className="relative w-full py-20 md:py-32 mb-12 bg-cover bg-center bg-no-repeat"
+        style={{ backgroundImage: "url('/cover_beranda.jpg')" }}
+      >
+        {/* Overlay */}
+        <div className="absolute inset-0 bg-black/60"></div>
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
             {/* Logo on the left */}
             <div className="flex-1 flex justify-center md:justify-end shrink-0">
               <img 
                 src="/logo.png" 
                 alt="Logo ORADO Besar" 
-                className="w-64 md:w-96 h-auto object-contain drop-shadow-xl" 
+                className="w-64 md:w-80 h-auto object-contain drop-shadow-2xl" 
               />
             </div>
             {/* Text on the right */}
             <div className="flex-1 flex flex-col items-center md:items-start text-center md:text-left">
-              <h2 className="font-outfit text-xl md:text-2xl text-slate-600 mb-1 font-medium tracking-wide">
+              <h2 className="font-outfit text-xl md:text-2xl text-slate-300 mb-2 font-medium tracking-wide">
                 SELAMAT DATANG DI PENGPROV
               </h2>
-              <h1 className="font-outfit text-3xl md:text-5xl text-[#0b1b36] font-bold leading-tight mb-6">
+              <h1 className="font-outfit text-4xl md:text-5xl text-white font-bold leading-tight mb-6 drop-shadow-lg">
                 ORADO Papua Barat Daya
               </h1>
-              <p className="font-jakarta text-sm md:text-base text-slate-600 max-w-lg mb-8 leading-relaxed">
+              <p className="font-jakarta text-sm md:text-lg text-slate-200 max-w-lg mb-8 leading-relaxed">
                 Pengurus Provinsi Federasi Olahraga Domino Nasional (ORADO) Papua Barat Daya adalah wadah organisasi resmi keolahragaan domino di wilayah Papua Barat Daya.
               </p>
-              <button className="px-8 py-3.5 bg-[#0f3b5f] hover:bg-navy-midnight text-white font-outfit text-sm font-semibold shadow-md transition-colors">
+              <button className="px-8 py-3.5 bg-primary hover:bg-primary-hover text-white font-outfit text-sm md:text-base font-bold rounded shadow-lg transition-transform hover:-translate-y-1">
                 Tentang ORADO
               </button>
             </div>
