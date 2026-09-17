@@ -48,11 +48,14 @@ export default function Home({ stats, pengcabList, onNavigate }) {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row items-center gap-12 md:gap-20">
             {/* Logo on the left */}
-            <div className="flex-1 flex justify-center md:justify-end shrink-0">
+            <div className="flex-1 flex justify-center md:justify-end shrink-0 relative">
+              {/* White glow to keep the logo visible while the square corners blend into the dark background */}
+              <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-56 md:w-64 md:h-72 bg-white/90 rounded-[40%] blur-xl pointer-events-none"></div>
               <img 
                 src="/logo.png" 
                 alt="Logo ORADO Besar" 
-                className="w-64 md:w-80 h-auto object-contain drop-shadow-2xl" 
+                className="w-64 md:w-80 h-auto object-contain relative z-10" 
+                style={{ mixBlendMode: 'multiply', filter: 'contrast(1.1)' }}
               />
             </div>
             {/* Text on the right */}
