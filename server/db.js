@@ -1,0 +1,364 @@
+// In-memory & Persistent JSON database manager for ORADO Papua Barat Daya Portal
+import fs from 'fs';
+import path from 'path';
+
+const DB_PATH = path.resolve('server', 'data.json');
+
+const INITIAL_DATA = {
+  stats: {
+    totalQuota: 128,
+    registered: 94,
+    verified: 86,
+    pending: 8,
+    prizePool: 'Rp 150.000.000',
+    pengcabCount: 6,
+    venue: 'Aimas Convention Center (ACC), Kab. Sorong',
+    dates: '24 – 28 Oktober 2026'
+  },
+  pengcabList: [
+    { name: 'Pengcab ORADO Kota Sorong', code: 'KOTA-SORONG', count: 28, verified: 26 },
+    { name: 'Pengcab ORADO Kab. Sorong', code: 'KAB-SORONG', count: 24, verified: 22 },
+    { name: 'Pengcab ORADO Raja Ampat', code: 'RAJA-AMPAT', count: 14, verified: 12 },
+    { name: 'Pengcab ORADO Maybrat', code: 'MAYBRAT', count: 12, verified: 11 },
+    { name: 'Pengcab ORADO Tambrauw', code: 'TAMBRAUW', count: 8, verified: 8 },
+    { name: 'Pengcab ORADO Sorong Selatan', code: 'SORONG-SELATAN', count: 8, verified: 7 }
+  ],
+  registrations: [
+    {
+      id: 'PBD-DOM-2026-001',
+      kategori: 'Ganda Putra',
+      pengcab: 'Kota Sorong',
+      klub: 'Domino Club Cenderawasih Aimas',
+      atlet1: {
+        nama: 'Yohanes Kambuaya',
+        nik: '9171011504880002',
+        hp: '081248001122',
+        kta: 'ORADO-PBD-2024-0102',
+        ktpVerified: true
+      },
+      atlet2: {
+        nama: 'Markus Waromi',
+        nik: '9171022008910005',
+        hp: '081344556677',
+        kta: 'ORADO-PBD-2024-0103',
+        ktpVerified: true
+      },
+      official: 'Bapak Septer Manufandu',
+      officialHp: '08114890011',
+      status: 'VERIFIED',
+      registeredAt: '2026-09-10T14:30:00Z',
+      notes: 'Berkas KTP & Rekomendasi Pengcab Absah (KONI APPROVED)'
+    },
+    {
+      id: 'PBD-DOM-2026-002',
+      kategori: 'Ganda Putra',
+      pengcab: 'Raja Ampat',
+      klub: 'Garda Bahari Waisai Domino Club',
+      atlet1: {
+        nama: 'Korneles Sanoy',
+        nik: '9105011210850001',
+        hp: '082199887766',
+        kta: 'ORADO-PBD-2024-0214',
+        ktpVerified: true
+      },
+      atlet2: {
+        nama: 'Lukas Mayalibit',
+        nik: '9105021804900004',
+        hp: '082233445566',
+        kta: 'ORADO-PBD-2024-0215',
+        ktpVerified: true
+      },
+      official: 'Alexander Mayor',
+      officialHp: '082199001122',
+      status: 'VERIFIED',
+      registeredAt: '2026-09-11T09:15:00Z',
+      notes: 'Berkas Absah KTP Domisili Waisai Raja Ampat'
+    },
+    {
+      id: 'PBD-DOM-2026-003',
+      kategori: 'Ganda Putri',
+      pengcab: 'Kota Sorong',
+      klub: 'Srikandi Malamoi Domino Sorong',
+      atlet1: {
+        nama: 'Maria Barek',
+        nik: '9171034406930007',
+        hp: '085244112233',
+        kta: 'ORADO-PBD-2025-0301',
+        ktpVerified: true
+      },
+      atlet2: {
+        nama: 'Ruth Osok',
+        nik: '9171045211950008',
+        hp: '085399887711',
+        kta: 'ORADO-PBD-2025-0302',
+        ktpVerified: true
+      },
+      official: 'Sarah Osok',
+      officialHp: '085244119900',
+      status: 'VERIFIED',
+      registeredAt: '2026-09-12T11:45:00Z',
+      notes: 'Utusan Srikandi Resmi Kota Sorong'
+    },
+    {
+      id: 'PBD-DOM-2026-094',
+      kategori: 'Ganda Campuran',
+      pengcab: 'Maybrat',
+      klub: 'Gardu Ayamaru Bersatu',
+      atlet1: {
+        nama: 'Balthazar Nauw',
+        nik: '9110011002870003',
+        hp: '081240998811',
+        kta: '',
+        ktpVerified: false
+      },
+      atlet2: {
+        nama: 'Elisabeth Way',
+        nik: '9110024505920006',
+        hp: '081240998822',
+        kta: '',
+        ktpVerified: false
+      },
+      official: 'Petrus Nauw',
+      officialHp: '081240998800',
+      status: 'PENDING',
+      registeredAt: '2026-09-16T08:20:00Z',
+      notes: 'Menunggu Verifikasi KTP Tim Keabsahan Atlet'
+    }
+  ],
+  matches: [
+    {
+      id: 'M-101-01',
+      meja: 1,
+      babak: 'Penyisihan Pool A (Meja 1)',
+      status: 'LIVE',
+      scoreA: 84,
+      scoreB: 72,
+      targetScore: 101,
+      sisaKartu: 6,
+      balakMatiA: 0,
+      balakMatiB: 1,
+      pairA: {
+        nama: 'Yohanes K. / Markus W.',
+        pengcab: 'Kota Sorong',
+        klub: 'Cenderawasih Aimas'
+      },
+      pairB: {
+        nama: 'Korneles S. / Lukas M.',
+        pengcab: 'Raja Ampat',
+        klub: 'Garda Bahari'
+      },
+      history: [
+        'Game 1: Tim Sorong +12 (12 - 0)',
+        'Game 2: Tim Raja Ampat +18 (12 - 18)',
+        'Game 3: Tim Sorong +24 (36 - 18)',
+        'Game 4: Tim Sorong +20 (56 - 18)',
+        'Game 5: Tim Raja Ampat +34 (56 - 52)',
+        'Game 6: Tim Sorong +18 (74 - 52)',
+        'Game 7: Tim Raja Ampat +20 (74 - 72)',
+        'Game 8: Tim Sorong +10 (84 - 72)'
+      ]
+    },
+    {
+      id: 'M-101-02',
+      meja: 2,
+      babak: 'Penyisihan Pool A (Meja 2)',
+      status: 'LIVE',
+      scoreA: 98,
+      scoreB: 95,
+      targetScore: 101,
+      sisaKartu: 2,
+      balakMatiA: 1,
+      balakMatiB: 0,
+      pairA: {
+        nama: 'Derek K. / Ruben T.',
+        pengcab: 'Kab. Sorong',
+        klub: 'Aimas Club'
+      },
+      pairB: {
+        nama: 'Daniel M. / Simon P.',
+        pengcab: 'Maybrat',
+        klub: 'Kumurkek Gardu'
+      },
+      history: [
+        'Game 1: Tim Kab. Sorong +25',
+        'Game 2: Tim Maybrat +40',
+        'Game 3: Tim Kab. Sorong +30',
+        'Game 4: Tim Maybrat +35',
+        'Game 5: Tim Kab. Sorong +43 (Sisa 3 Poin)'
+      ]
+    },
+    {
+      id: 'M-101-03',
+      meja: 3,
+      babak: 'Penyisihan Pool B (Meja 3)',
+      status: 'SELESAI',
+      scoreA: 101,
+      scoreB: 68,
+      targetScore: 101,
+      sisaKartu: 0,
+      winner: 'pairA',
+      pairA: {
+        nama: 'Maria B. / Ruth O.',
+        pengcab: 'Kota Sorong',
+        klub: 'Srikandi Malamoi'
+      },
+      pairB: {
+        nama: 'Yuliana M. / Grace S.',
+        pengcab: 'Tambrauw',
+        klub: 'Sausapor Domino'
+      },
+      history: ['Tim Maria B. / Ruth O. Menang Poin 101-68 (Lolos 32 Besar)']
+    },
+    {
+      id: 'M-101-04',
+      meja: 4,
+      babak: 'Penyisihan Pool B (Meja 4)',
+      status: 'MENUNGGU',
+      scoreA: 0,
+      scoreB: 0,
+      targetScore: 101,
+      sisaKartu: 28,
+      pairA: {
+        nama: 'Balthazar N. / Elisabeth W.',
+        pengcab: 'Maybrat',
+        klub: 'Ayamaru Bersatu'
+      },
+      pairB: {
+        nama: 'Stefanus K. / Melkianus F.',
+        pengcab: 'Sorong Selatan',
+        klub: 'Teminabuan Club'
+      },
+      history: []
+    }
+  ],
+  brackets: {
+    roundOf16: [
+      { id: 'R16-1', pairA: 'Yohanes K. / Markus W. (Sorong)', pairB: 'Korneles S. / Lukas M. (Raja Ampat)', scoreA: 84, scoreB: 72, live: true, meja: 1 },
+      { id: 'R16-2', pairA: 'Derek K. / Ruben T. (Kab. Sorong)', pairB: 'Daniel M. / Simon P. (Maybrat)', scoreA: 98, scoreB: 95, live: true, meja: 2 },
+      { id: 'R16-3', pairA: 'Maria B. / Ruth O. (Kota Sorong)', pairB: 'Yuliana M. / Grace S. (Tambrauw)', scoreA: 101, scoreB: 68, winner: 'A', meja: 3 },
+      { id: 'R16-4', pairA: 'Balthazar N. / Elisabeth W. (Maybrat)', pairB: 'Stefanus K. / Melkianus F. (Sorsel)', scoreA: 0, scoreB: 0, waiting: true, meja: 4 },
+      { id: 'R16-5', pairA: 'Yance P. / Charles O. (Kota Sorong)', pairB: 'David S. / Filemon T. (Raja Ampat)', scoreA: 101, scoreB: 88, winner: 'A', meja: 5 },
+      { id: 'R16-6', pairA: 'Arnold W. / Paulus K. (Kab. Sorong)', pairB: 'Victor M. / Timotius B. (Maybrat)', scoreA: 101, scoreB: 79, winner: 'A', meja: 6 },
+      { id: 'R16-7', pairA: 'Gabriel T. / Herman K. (Tambrauw)', pairB: 'Yacob S. / Melkias W. (Sorsel)', scoreA: 92, scoreB: 101, winner: 'B', meja: 7 },
+      { id: 'R16-8', pairA: 'Efraim M. / Barnabas Y. (Kota Sorong)', pairB: 'Zeth K. / Richard O. (Kab. Sorong)', scoreA: 101, scoreB: 54, winner: 'A', meja: 8 }
+    ],
+    quarterFinals: [
+      { id: 'QF-1', pairA: 'TBD (Pemenang R16-1)', pairB: 'TBD (Pemenang R16-2)', scoreA: 0, scoreB: 0, scheduled: '26 Okt, 14:00' },
+      { id: 'QF-2', pairA: 'Maria B. / Ruth O.', pairB: 'TBD (Pemenang R16-4)', scoreA: 0, scoreB: 0, scheduled: '26 Okt, 15:00' },
+      { id: 'QF-3', pairA: 'Yance P. / Charles O.', pairB: 'Arnold W. / Paulus K.', scoreA: 0, scoreB: 0, scheduled: '26 Okt, 16:00' },
+      { id: 'QF-4', pairA: 'Yacob S. / Melkias W.', pairB: 'Efraim M. / Barnabas Y.', scoreA: 0, scoreB: 0, scheduled: '26 Okt, 17:00' }
+    ],
+    semiFinals: [
+      { id: 'SF-1', pairA: 'TBD (Pemenang QF-1)', pairB: 'TBD (Pemenang QF-2)', scoreA: 0, scoreB: 0, scheduled: '27 Okt, 10:00' },
+      { id: 'SF-2', pairA: 'TBD (Pemenang QF-3)', pairB: 'TBD (Pemenang QF-4)', scoreA: 0, scoreB: 0, scheduled: '27 Okt, 11:30' }
+    ],
+    final: {
+      id: 'FN-1',
+      title: 'FINAL PIALA GUBERNUR PAPUA BARAT DAYA 2026',
+      pairA: 'TBD (Finalis A)',
+      pairB: 'TBD (Finalis B)',
+      scoreA: 0,
+      scoreB: 0,
+      scheduled: '28 Okt, 15:30 (Live Streaming TVRI Papua)'
+    }
+  },
+  athletes: [
+    {
+      nik: '9171011504880002',
+      kta: 'ORADO-PBD-2024-0102',
+      nama: 'Yohanes Kambuaya',
+      pengcab: 'Kota Sorong',
+      klub: 'Domino Club Cenderawasih Aimas',
+      status: 'AKTIF_TERVERIFIKASI',
+      peringkatProvinsi: 1,
+      totalTanding: 34,
+      menang: 29,
+      prestasi: ['Juara 1 Kejurda Sorong 2025', 'Juara 2 Open Turnamen Raja Ampat 2024']
+    },
+    {
+      nik: '9171022008910005',
+      kta: 'ORADO-PBD-2024-0103',
+      nama: 'Markus Waromi',
+      pengcab: 'Kota Sorong',
+      klub: 'Domino Club Cenderawasih Aimas',
+      status: 'AKTIF_TERVERIFIKASI',
+      peringkatProvinsi: 2,
+      totalTanding: 32,
+      menang: 27,
+      prestasi: ['Juara 1 Kejurda Sorong 2025', 'Pemain Terbaik Meja 101 PBD']
+    },
+    {
+      nik: '9105011210850001',
+      kta: 'ORADO-PBD-2024-0214',
+      nama: 'Korneles Sanoy',
+      pengcab: 'Raja Ampat',
+      klub: 'Garda Bahari Waisai Domino Club',
+      status: 'AKTIF_TERVERIFIKASI',
+      peringkatProvinsi: 5,
+      totalTanding: 26,
+      menang: 20,
+      prestasi: ['Juara 1 Bupati Raja Ampat Cup 2024']
+    },
+    {
+      nik: '9171034406930007',
+      kta: 'ORADO-PBD-2025-0301',
+      nama: 'Maria Barek',
+      pengcab: 'Kota Sorong',
+      klub: 'Srikandi Malamoi Domino Sorong',
+      status: 'AKTIF_TERVERIFIKASI',
+      peringkatProvinsi: 3,
+      totalTanding: 28,
+      menang: 24,
+      prestasi: ['Juara 1 Kategori Srikandi PBD 2025']
+    }
+  ],
+  news: [
+    {
+      id: 'news-1',
+      title: 'Pengprov PB ORADO Papua Barat Daya Matangkan Persiapan Kejurda Domino I 2026',
+      category: 'BERITA RESMI',
+      date: '15 September 2026',
+      summary: 'Ketua Pengprov ORADO PBD menegaskan Kejurda 2026 di Aimas Convention Center siap menjadi ajang seleksi atlet menuju Kejurnas Jakarta.',
+      author: 'Humas Pengprov ORADO PBD'
+    },
+    {
+      id: 'news-2',
+      title: 'Pernyataan Resmi: Bebas Judi & Uji Keabsahan NIK KTP Diperketat',
+      category: 'REGULASI',
+      date: '12 September 2026',
+      summary: 'Tim Keabsahan Atlet KONI PBD menerapkan sistem verifikasi KTP elektronik 16 digit guna mencegah manipulasi atlet luar daerah.',
+      author: 'Komisi Perwasitan & Hukum'
+    },
+    {
+      id: 'news-3',
+      title: 'Total Hadiah Rp 150 Juta + Trofi Bergilir Gubernur Siap Diperebutkan',
+      category: 'PENGUMUMAN',
+      date: '10 September 2026',
+      summary: 'Hadiah pembinaan bersumber dari hibah APBD Prov. Papua Barat Daya melalui KONI untuk memacu prestasi cabor domino daerah.',
+      author: 'Panitia Pelaksana'
+    }
+  ]
+};
+
+// Initialize file DB if not present
+export function getDB() {
+  try {
+    if (!fs.existsSync(DB_PATH)) {
+      fs.writeFileSync(DB_PATH, JSON.stringify(INITIAL_DATA, null, 2));
+      return INITIAL_DATA;
+    }
+    const content = fs.readFileSync(DB_PATH, 'utf-8');
+    return JSON.parse(content);
+  } catch (err) {
+    console.error('Error reading DB file, using fallback initial data:', err);
+    return INITIAL_DATA;
+  }
+}
+
+export function saveDB(data) {
+  try {
+    fs.writeFileSync(DB_PATH, JSON.stringify(data, null, 2));
+  } catch (err) {
+    console.error('Error saving DB file:', err);
+  }
+}
