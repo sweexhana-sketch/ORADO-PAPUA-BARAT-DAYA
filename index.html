@@ -1,506 +1,574 @@
 <!DOCTYPE html>
-
-<html lang="id"><head>
+<html lang="id">
+<head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>ORADO Papua Barat Daya - Federasi Olahraga Domino Nasional</title>
-<!-- Tailwind CSS v3 with plugins -->
+<meta name="description" content="Portal resmi ORADO Papua Barat Daya – Federasi Olahraga Domino Nasional Provinsi Papua Barat Daya. Anggota resmi KONI Pusat."/>
+<!-- Tailwind CSS v3 -->
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            orado: {
-              red: '#C62828',
-              crimson: '#D32F2F',
-              darkred: '#8B0000',
-              navy: '#0B192C',
-              teal: '#004B6E',
-              tealhover: '#003650',
-              slate: '#1E293B',
-            }
-          },
-          fontFamily: {
-            sans: ['Inter', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'sans-serif'],
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          orado: {
+            red:      '#C62828',
+            crimson:  '#D32F2F',
+            darkred:  '#8B0000',
+            navy:     '#0B192C',
+            teal:     '#004B6E',
+            tealhover:'#003650',
+            slate:    '#1E293B',
           }
+        },
+        fontFamily: {
+          sans: ['Inter','system-ui','-apple-system','Segoe UI','Roboto','sans-serif'],
         }
       }
     }
-  </script>
-<!-- Google Fonts for crisp sport typography -->
+  }
+</script>
+<!-- Google Fonts -->
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&amp;family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<!-- Custom Styles: Typography & Animations -->
-<style data-purpose="custom-typography">
-    body {
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
-    .font-sport {
-      font-family: 'Montserrat', sans-serif;
-    }
-    .text-shadow-glow {
-      text-shadow: 0 0 15px rgba(220, 38, 38, 0.45);
-    }
-    .text-shadow-dark {
-      text-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
-    }
-  </style>
-<!-- Custom Styles: Carousel & Overlay Effects -->
-<style data-purpose="carousel-effects">
-    .slide-item {
-      transition: opacity 0.7s ease-in-out;
-    }
-    .pattern-cloud-batik {
-      background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 0);
-      background-size: 24px 24px;
-    }
-    .gradient-hero-navy {
-      background: radial-gradient(circle at 20% 50%, #172740 0%, #07101e 70%, #03070d 100%);
-    }
-    @keyframes floatLogo {
-      0%, 100% { transform: translateY(0px); }
-      50%       { transform: translateY(-14px); }
-    }
-    .logo-glow-pulse {
-      animation: logoPulse 3s ease-in-out infinite;
-    }
-    @keyframes logoPulse {
-      0%, 100% { filter: drop-shadow(0 0 24px rgba(198,40,40,0.4)) drop-shadow(0 8px 24px rgba(0,0,0,0.8)); }
-      50%       { filter: drop-shadow(0 0 48px rgba(198,40,40,0.75)) drop-shadow(0 8px 32px rgba(0,0,0,0.9)); }
-    }
-  </style>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800;900&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+
+<style>
+  body { font-family: 'Plus Jakarta Sans', sans-serif; }
+  .font-sport { font-family: 'Montserrat', sans-serif; }
+  .text-shadow-glow { text-shadow: 0 0 15px rgba(220,38,38,0.45); }
+
+  /* ── Slider: slide ke kiri ── */
+  .carousel-track {
+    display: flex;
+    transition: transform 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+    will-change: transform;
+  }
+  .carousel-slide {
+    flex: 0 0 100%;
+    min-width: 100%;
+    position: relative;
+  }
+
+  .pattern-cloud-batik {
+    background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 0);
+    background-size: 24px 24px;
+  }
+  .gradient-hero-navy {
+    background: radial-gradient(circle at 20% 50%, #172740 0%, #07101e 70%, #03070d 100%);
+  }
+
+  /* Animasi float logo */
+  @keyframes floatLogo {
+    0%,100% { transform: translateY(0px); }
+    50%      { transform: translateY(-12px); }
+  }
+  .logo-float { animation: floatLogo 4s ease-in-out infinite; }
+
+  /* Overlay foto slide */
+  .slide-photo-overlay {
+    background: linear-gradient(
+      105deg,
+      rgba(7,16,30,0.88) 0%,
+      rgba(7,16,30,0.65) 50%,
+      rgba(7,16,30,0.30) 100%
+    );
+  }
+</style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased selection:bg-orado-crimson selection:text-white">
-<!-- BEGIN: MainHeader -->
-<header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm" data-purpose="site-navigation-header">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex items-center justify-between h-20">
-<!-- Brand Identity / Logo Section -->
-<div class="flex items-center gap-3">
-<a class="flex items-center gap-3 group" href="#" title="Beranda ORADO Papua Barat Daya">
-<!-- Logo Resmi ORADO Papua Barat Daya -->
-<div class="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
-<img src="logo.png" alt="Logo ORADO Papua Barat Daya" class="w-full h-full object-contain drop-shadow-md" />
-</div>
-<!-- Logo Text Representation -->
-<div class="flex flex-col">
-<div class="flex items-baseline gap-1.5">
-<span class="font-sport font-black text-2xl sm:text-3xl tracking-tight text-orado-red leading-none">ORADO</span>
-<span class="text-[10px] font-bold text-gray-400 tracking-wider">INDONESIA</span>
-</div>
-<span class="text-[10.5px] sm:text-[11px] font-semibold text-gray-600 tracking-normal leading-tight">
-                Federasi Olahraga Domino Nasional <span class="text-orado-red font-bold hidden md:inline">| Papua Barat Daya</span>
-</span>
-</div>
-</a>
-</div>
-<!-- Center Nav Items (Desktop) -->
-<nav aria-label="Navigasi Utama" class="hidden lg:flex items-center space-x-7">
-<!-- Active Link 'Beranda' with bottom indicator -->
-<a class="relative py-2 text-[15px] font-bold text-sky-700 hover:text-sky-800 transition-colors after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-sky-600 after:rounded-full" href="#">
-            Beranda
-          </a>
-<div class="relative group">
-<button class="flex items-center gap-1 text-[15px] font-medium text-gray-600 hover:text-orado-red transition-colors" type="button">
-              Tentang Kami
-              <svg class="w-4 h-4 text-gray-400 group-hover:text-orado-red transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</button>
-</div>
-<a class="text-[15px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#galeri">
-            Galeri
-          </a>
-<a class="text-[15px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#kejurnas">
-            Kejurnas
-          </a>
-<a class="text-[15px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#turnamen">
-            Turnamen
-          </a>
-<div class="relative group">
-<button class="flex items-center gap-1 text-[15px] font-medium text-gray-600 hover:text-orado-red transition-colors" type="button">
-              Media
-              <svg class="w-4 h-4 text-gray-400 group-hover:text-orado-red transition-transform group-hover:rotate-180" fill="none" stroke="currentColor" viewbox="0 0 24 24">
-<path d="M19 9l-7 7-7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path>
-</svg>
-</button>
-</div>
-<a class="text-[15px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#latihan">
-            Latihan
-          </a>
-</nav>
-<!-- Right Side CTA Buttons -->
-<div class="flex items-center gap-3">
-<a class="px-5 py-2 text-sm font-semibold rounded bg-orado-teal text-white hover:bg-orado-tealhover transition-all shadow-sm" href="#daftar">
-            Daftar Akun
-          </a>
-<a class="px-5 py-2 text-sm font-medium rounded border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 transition-all shadow-sm" href="#masuk">
-            Masuk
-          </a>
-</div>
-</div>
-</div>
+
+<!-- ═══════════════════════════════════════
+     HEADER
+═══════════════════════════════════════ -->
+<header class="sticky top-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16 lg:h-20">
+
+      <!-- Logo + Teks -->
+      <a class="flex items-center gap-2 group flex-shrink-0" href="#" title="Beranda ORADO Papua Barat Daya">
+        <div class="w-11 h-11 lg:w-13 lg:h-13 flex-shrink-0">
+          <img src="logo.png" alt="Logo ORADO Papua Barat Daya" class="w-full h-full object-contain drop-shadow-md"/>
+        </div>
+        <div class="flex flex-col leading-tight">
+          <div class="flex items-baseline gap-1">
+            <span class="font-sport font-black text-xl lg:text-2xl tracking-tight text-orado-red leading-none">ORADO</span>
+            <span class="text-[9px] font-bold text-gray-400 tracking-wider hidden sm:inline">INDONESIA</span>
+          </div>
+          <!-- Teks diperkecil agar tidak berdempetan -->
+          <span class="text-[9px] lg:text-[10px] font-semibold text-gray-500 tracking-normal leading-snug max-w-[160px] lg:max-w-none">
+            Federasi Olahraga Domino Nasional
+            <span class="text-orado-red font-bold hidden lg:inline"> | Papua Barat Daya</span>
+          </span>
+        </div>
+      </a>
+
+      <!-- Nav Desktop -->
+      <nav aria-label="Navigasi Utama" class="hidden lg:flex items-center space-x-5 xl:space-x-7">
+        <a class="relative py-2 text-[14px] font-bold text-sky-700 after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2.5px] after:bg-sky-600 after:rounded-full" href="#">Beranda</a>
+        <a class="text-[14px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#tentang">Tentang Kami</a>
+        <a class="text-[14px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#galeri">Galeri</a>
+        <a class="text-[14px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#kejurnas">Kejurnas</a>
+        <a class="text-[14px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#turnamen">Turnamen</a>
+        <a class="text-[14px] font-medium text-gray-600 hover:text-orado-red transition-colors" href="#latihan">Latihan</a>
+      </nav>
+
+      <!-- CTA Buttons -->
+      <div class="flex items-center gap-2">
+        <a class="px-4 py-2 text-sm font-semibold rounded bg-orado-teal text-white hover:bg-orado-tealhover transition-all shadow-sm" href="#daftar">Daftar Akun</a>
+        <a class="px-4 py-2 text-sm font-medium rounded border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 transition-all shadow-sm hidden sm:inline-flex" href="#masuk">Masuk</a>
+        <!-- Hamburger mobile -->
+        <button class="lg:hidden ml-1 p-2 rounded bg-orado-teal text-white" id="mobileMenuBtn" aria-label="Menu">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+        </button>
+      </div>
+
+    </div>
+  </div>
+  <!-- Mobile menu -->
+  <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 pb-4">
+    <nav class="flex flex-col gap-1 pt-2">
+      <a class="py-2 px-3 font-bold text-sky-700 rounded" href="#">Beranda</a>
+      <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#">Tentang Kami</a>
+      <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#galeri">Galeri</a>
+      <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#kejurnas">Kejurnas</a>
+      <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#turnamen">Turnamen</a>
+      <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#latihan">Latihan</a>
+    </nav>
+  </div>
 </header>
-<!-- END: MainHeader -->
-<!-- BEGIN: HeroCarouselSection -->
-<section class="relative w-full overflow-hidden bg-slate-950" data-purpose="hero-slideshow" id="heroCarousel">
-<!-- Carousel Container -->
-<div class="relative min-h-[580px] lg:h-[680px] w-full flex items-center">
-<!-- SLIDE 1: Official KONI Membership Announcement (Papua Barat Daya focus) -->
-<div class="slide-item absolute inset-0 w-full h-full opacity-100 transition-opacity duration-700 z-20 flex items-center gradient-hero-navy pattern-cloud-batik" id="slide-1">
-<!-- Background Graphic Elements: Speed lines & Glows -->
-<div class="absolute inset-0 pointer-events-none overflow-hidden">
-<div class="absolute -top-32 -left-32 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"></div>
-<div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-600/15 rounded-full blur-3xl"></div>
-<!-- Red accent bottom bar line -->
-<div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-orado-darkred via-red-600 to-transparent"></div>
-</div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 relative z-10">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
-<!-- Left Side: Logo Resmi ORADO Papua Barat Daya -->
-<div class="lg:col-span-5 flex justify-center lg:justify-start">
-<div class="relative flex items-center justify-center filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]" style="animation: floatLogo 4s ease-in-out infinite;">
-<img
-  src="logo.png"
-  alt="Logo ORADO Papua Barat Daya"
-  class="w-64 sm:w-80 md:w-96 h-auto object-contain"
-  style="filter: drop-shadow(0 0 32px rgba(198,40,40,0.5)) drop-shadow(0 8px 24px rgba(0,0,0,0.8));"
-/>
-</div>
-</div>
-<!-- Right Side: Headline, KONI Badge, Subtitle & Slogan -->
-<div class="lg:col-span-7 text-white space-y-5 text-center lg:text-left">
-<!-- Official KONI Accreditation Badge -->
-<div class="inline-flex items-center gap-3.5 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-lg">
-<!-- KONI Circular Logo Badge -->
-<div class="w-11 h-11 rounded-full bg-white p-1 flex items-center justify-center flex-shrink-0 shadow">
-<svg class="w-full h-full text-red-600" fill="currentColor" viewbox="0 0 100 100">
-<circle cx="50" cy="50" fill="none" r="46" stroke="#dc2626" stroke-width="5"></circle>
-<path d="M50 18 C58 32 45 40 50 56 C40 48 44 32 50 18 Z" fill="#eab308"></path>
-<circle cx="50" cy="65" fill="none" r="12" stroke="#dc2626" stroke-width="4"></circle>
-</svg>
-</div>
-<div class="text-left">
-<span class="text-xs uppercase tracking-widest text-gray-300 font-bold block">Anggota Resmi</span>
-<span class="font-sport text-base font-extrabold tracking-tight text-white block leading-none">KONI PUSAT</span>
-<span class="text-[10px] text-gray-300 font-medium tracking-normal block">Komite Olahraga Nasional Indonesia</span>
-</div>
-</div>
-<!-- Main Hero Title Customized for Papua Barat Daya -->
-<div class="space-y-1">
-<h1 class="font-sport text-3xl sm:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-none text-white">
-                  ORADO RESMI
-                </h1>
-<h2 class="font-sport text-3xl sm:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-none">
-                  MENJADI <span class="text-orado-crimson text-shadow-glow">ANGGOTA</span>
-</h2>
-<h3 class="font-sport text-3xl sm:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-none text-orado-crimson">
-                  KONI PUSAT
-                </h3>
-<div class="pt-2">
-<span class="inline-block px-3.5 py-1 text-xs sm:text-sm font-extrabold uppercase tracking-wider bg-red-600/30 border border-red-500 text-red-200 rounded-full">
-                    Pengprov ORADO Papua Barat Daya
-                  </span>
-</div>
-</div>
-<!-- Subheadline -->
-<p class="text-base sm:text-xl font-medium text-gray-200 max-w-2xl leading-relaxed">
-                Membawa Olahraga Domino Indonesia Menuju Panggung Olahraga Nasional &amp; PON XXI
+
+<!-- ═══════════════════════════════════════
+     HERO CAROUSEL — slide ke kiri
+═══════════════════════════════════════ -->
+<section class="relative w-full overflow-hidden bg-slate-950" id="heroCarousel">
+  <!-- Track -->
+  <div class="carousel-track" id="carouselTrack">
+
+    <!-- ── SLIDE 1: KONI Announcement ── -->
+    <div class="carousel-slide min-h-[520px] lg:h-[680px] gradient-hero-navy pattern-cloud-batik flex items-center">
+      <!-- Glow bg -->
+      <div class="absolute inset-0 pointer-events-none overflow-hidden">
+        <div class="absolute -top-32 -left-32 w-96 h-96 bg-red-600/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-[500px] h-[500px] bg-sky-600/15 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 left-0 w-full h-2 bg-gradient-to-r from-orado-darkred via-red-600 to-transparent"></div>
+      </div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 relative z-10">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <!-- Logo Float -->
+          <div class="lg:col-span-5 flex justify-center lg:justify-start">
+            <img src="logo.png" alt="Logo ORADO Papua Barat Daya"
+              class="logo-float w-52 sm:w-72 md:w-80 h-auto object-contain"
+              style="filter: drop-shadow(0 0 32px rgba(198,40,40,0.55)) drop-shadow(0 8px 28px rgba(0,0,0,0.85));"/>
+          </div>
+          <!-- Text -->
+          <div class="lg:col-span-7 text-white space-y-5 text-center lg:text-left">
+            <!-- KONI Badge -->
+            <div class="inline-flex items-center gap-3 bg-white/5 border border-white/10 backdrop-blur-md px-4 py-2.5 rounded-xl shadow-lg">
+              <div class="w-10 h-10 rounded-full bg-white p-1 flex items-center justify-center flex-shrink-0 shadow">
+                <svg class="w-full h-full text-red-600" fill="currentColor" viewBox="0 0 100 100">
+                  <circle cx="50" cy="50" fill="none" r="46" stroke="#dc2626" stroke-width="5"/>
+                  <path d="M50 18 C58 32 45 40 50 56 C40 48 44 32 50 18 Z" fill="#eab308"/>
+                  <circle cx="50" cy="65" fill="none" r="12" stroke="#dc2626" stroke-width="4"/>
+                </svg>
+              </div>
+              <div class="text-left">
+                <span class="text-xs uppercase tracking-widest text-gray-300 font-bold block">Anggota Resmi</span>
+                <span class="font-sport text-base font-extrabold tracking-tight text-white block leading-none">KONI PUSAT</span>
+                <span class="text-[10px] text-gray-300 font-medium block">Komite Olahraga Nasional Indonesia</span>
+              </div>
+            </div>
+            <!-- Judul -->
+            <div class="space-y-1">
+              <h1 class="font-sport text-3xl sm:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-none text-white">ORADO RESMI</h1>
+              <h2 class="font-sport text-3xl sm:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-none">MENJADI <span class="text-orado-crimson text-shadow-glow">ANGGOTA</span></h2>
+              <h3 class="font-sport text-3xl sm:text-5xl xl:text-6xl font-black uppercase tracking-tight leading-none text-orado-crimson">KONI PUSAT</h3>
+              <div class="pt-2">
+                <span class="inline-block px-3 py-1 text-xs font-extrabold uppercase tracking-wider bg-red-600/30 border border-red-500 text-red-200 rounded-full">
+                  Pengprov ORADO Papua Barat Daya
+                </span>
+              </div>
+            </div>
+            <p class="text-base sm:text-lg font-medium text-gray-200 max-w-2xl leading-relaxed">
+              Membawa Olahraga Domino Indonesia Menuju Panggung Olahraga Nasional &amp; PON
+            </p>
+            <div class="pt-3 border-t border-white/15 inline-block">
+              <p class="font-sport text-sm sm:text-base font-black tracking-widest text-gray-100 uppercase">
+                OLAHRAGA <span class="text-orado-crimson">|</span> SPORTIVITAS <span class="text-orado-crimson">|</span> PRESTASI
               </p>
-<!-- Slogan Bottom Strip -->
-<div class="pt-4 border-t border-white/15 inline-block">
-<p class="font-sport text-sm sm:text-lg font-black tracking-widest text-gray-100 uppercase">
-                  OLAHRAGA <span class="text-orado-crimson">|</span> SPORTIVITAS <span class="text-orado-crimson">|</span> PRESTASI
-                </p>
-</div>
-<!-- Quick action links -->
-<div class="pt-2 flex flex-wrap justify-center lg:justify-start gap-4">
-<a class="px-6 py-2.5 bg-orado-crimson hover:bg-orado-darkred font-bold text-sm rounded shadow-lg transition-all flex items-center gap-2" href="#profil">
-<span>Profil Pengprov Papua Barat Daya</span>
-<svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</a>
-<a class="px-6 py-2.5 bg-white/10 hover:bg-white/20 border border-white/30 font-semibold text-sm rounded transition-all" href="#turnamen">
-                  Jadwal Seleksi Atlet
-                </a>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- SLIDE 2: Pelantikan & Pengukuhan Pengurus Papua Barat Daya (matching IMAGE_2) -->
-<div class="slide-item absolute inset-0 w-full h-full opacity-0 pointer-events-none transition-opacity duration-700 z-10 flex items-center justify-center bg-gray-900" id="slide-2">
-<!-- Stage Photo Background -->
-<div class="absolute inset-0">
-<img alt="Pelantikan ORADO Papua Barat Daya" class="w-full h-full object-cover object-center filter brightness-90" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCxF1nzluDDCHwpMeOqObbCX64BDGP8mT_TITjHVopdO0kQCiN5nsUMdqjvUgcj9YMDPdOQG0ps9FDJP4WxVhosANQgRXHEk9hal_my6D360xUHqX5AgDLNYV4ms8sFAhMzkj21WO15RUn8Pr7KHqX8Zq5s-IAiw2Mii04kS3erO4aAyvKjYynLXv9DGogBFZWDJRmH7X1xVgIP3n1QpvqcaMgbBUQ8o8ZAR2DDUXVwT3MwDQRgKayEex3j-JTuSxPUgW0"/>
-<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent"></div>
-<div class="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent"></div>
-</div>
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-20 py-16">
-<div class="max-w-3xl space-y-4 text-white">
-<span class="inline-flex items-center gap-2 px-3 py-1 bg-orado-crimson text-white text-xs uppercase font-bold tracking-wider rounded-md">
-<span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Pelantikan Resmi
-            </span>
-<h2 class="font-sport text-3xl sm:text-5xl font-black uppercase text-white leading-tight drop-shadow-lg">
-              Pelantikan &amp; Pengukuhan Pengurus Provinsi ORADO Papua Barat Daya
-            </h2>
-<p class="text-base sm:text-lg text-gray-200 leading-relaxed drop-shadow">
-              Momentum penyerahan bendera pataka ORADO oleh Pengurus Besar ORADO kepada jajaran pengurus Provinsi Papua Barat Daya bertempat di Gedung Pertemuan Sorong, siap mencetak atlet domino berprestasi di kancah nasional.
-            </p>
-<div class="pt-4 flex items-center gap-4">
-<a class="px-6 py-3 bg-white text-gray-900 hover:bg-gray-100 font-bold text-sm rounded shadow-lg transition-all" href="#galeri">
-                Lihat Dokumentasi Pelantikan
+            </div>
+            <div class="pt-1 flex flex-wrap justify-center lg:justify-start gap-3">
+              <a class="px-5 py-2.5 bg-orado-crimson hover:bg-orado-darkred font-bold text-sm rounded shadow-lg transition-all flex items-center gap-2" href="#tentang">
+                Profil Pengprov Papua Barat Daya
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
               </a>
-<span class="text-sm font-semibold text-gray-300">Sorong, Papua Barat Daya</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Carousel Navigation Arrows -->
-<button aria-label="Slide Sebelumnya" class="absolute left-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm border border-white/20 transition-all focus:outline-none" id="prevSlideBtn" type="button">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
-</button>
-<button aria-label="Slide Selanjutnya" class="absolute right-4 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-sm border border-white/20 transition-all focus:outline-none" id="nextSlideBtn" type="button">
-<svg class="w-6 h-6" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"></path></svg>
-</button>
-<!-- Carousel Dots Indicators -->
-<div class="absolute bottom-6 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2.5">
-<button aria-label="Navigasi ke Slide 1" class="carousel-dot w-8 h-2.5 rounded-full bg-orado-crimson transition-all" data-index="0" type="button"></button>
-<button aria-label="Navigasi ke Slide 2" class="carousel-dot w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all" data-index="1" type="button"></button>
-</div>
-</div>
-</section>
-<!-- END: HeroCarouselSection -->
-<!-- BEGIN: RegionStatsSummary -->
-<section class="bg-white border-b border-gray-200 py-8 relative z-20 shadow-sm" data-purpose="region-quick-stats">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-gray-200">
-<div class="pt-4 md:pt-0">
-<p class="font-sport text-3xl font-extrabold text-orado-red">6 Wilayah</p>
-<p class="text-xs sm:text-sm text-gray-500 font-medium uppercase tracking-wider mt-1">Pengcab Kota &amp; Kab. PBD</p>
-</div>
-<div class="pt-4 md:pt-0">
-<p class="font-sport text-3xl font-extrabold text-slate-800">420+</p>
-<p class="text-xs sm:text-sm text-gray-500 font-medium uppercase tracking-wider mt-1">Atlet Domino Terdaftar</p>
-</div>
-<div class="pt-4 md:pt-0">
-<p class="font-sport text-3xl font-extrabold text-orado-teal">12 Klub</p>
-<p class="text-xs sm:text-sm text-gray-500 font-medium uppercase tracking-wider mt-1">Komunitas Domino Resmi</p>
-</div>
-<div class="pt-4 md:pt-0">
-<p class="font-sport text-3xl font-extrabold text-amber-600">Kejurda I</p>
-<p class="text-xs sm:text-sm text-gray-500 font-medium uppercase tracking-wider mt-1">Mendatang di Sorong</p>
-</div>
-</div>
-</div>
-</section>
-<!-- END: RegionStatsSummary -->
-<!-- BEGIN: LatestNewsAndEvents -->
-<section class="py-14 bg-gray-50" data-purpose="featured-news-and-tournaments" id="turnamen">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-<div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-gray-200">
-<div>
-<span class="text-xs font-bold text-orado-red uppercase tracking-widest">Informasi Terkini</span>
-<h2 class="font-sport text-2xl sm:text-3xl font-bold text-gray-900 mt-1">
-            Agenda &amp; Berita Pengprov ORADO Papua Barat Daya
+              <a class="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/30 font-semibold text-sm rounded transition-all" href="#turnamen">Jadwal Seleksi Atlet</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 2: Deklarasi Nasional – Pidato ── -->
+    <div class="carousel-slide min-h-[520px] lg:h-[680px] flex items-center relative">
+      <img src="slide_deklarasi1.jpg" alt="Deklarasi Nasional ORADO" class="absolute inset-0 w-full h-full object-cover object-center"/>
+      <div class="absolute inset-0 slide-photo-overlay"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-16">
+        <div class="max-w-2xl space-y-4 text-white">
+          <span class="inline-flex items-center gap-2 px-3 py-1 bg-orado-crimson text-white text-xs uppercase font-bold tracking-wider rounded-md">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Deklarasi Nasional
+          </span>
+          <h2 class="font-sport text-3xl sm:text-5xl font-black uppercase text-white leading-tight drop-shadow-lg">
+            Pelantikan &amp; Pengukuhan<br/>Pengurus ORADO<br/><span class="text-orado-crimson">Papua Barat Daya</span>
           </h2>
-</div>
-<a class="mt-4 md:mt-0 text-sm font-bold text-orado-teal hover:text-orado-tealhover flex items-center gap-1.5" href="#">
-          Lihat Semua Agenda
-          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewbox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></path></svg>
-</a>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-<!-- Card 1 -->
-<article class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-<div class="h-48 bg-slate-800 relative overflow-hidden">
-<img alt="KONI Papua Barat Daya" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD_nlUFg3qmjcV_9pBB1sleOn_l9fkUaxLaOEx4FZZ3TnigQ1BhCj9hjveR9NWkwhyjaR5EcUx34jTw_41BonL-EIErEr2kna4X3jwD3opvpB4szIIwEKGQIV_GXAvcW2wrFlNQR3YcuR1fBeRR5mDavcRhnttt7CCTGeWuSJXj5nRs8LMPoAPUj2fYQ_V3gYjNqP0HviLlYTS3NJHdqDqaPvGdhbfv1xBUwnm7lR53thOeqjBkTx4THfrwiGtiGL26zoc"/>
-<span class="absolute top-3 left-3 bg-orado-crimson text-white text-[11px] font-bold px-2.5 py-1 rounded">
-              RESMI
-            </span>
-</div>
-<div class="p-5">
-<div class="text-xs text-gray-500 mb-2">24 Oktober 2024 • Sekretariat ORADO PBD</div>
-<h3 class="font-sport font-bold text-lg text-gray-900 mb-2 hover:text-orado-red transition-colors">
-              ORADO Papua Barat Daya Resmi Diterima Jadi Anggota KONI Daerah
-            </h3>
-<p class="text-sm text-gray-600 line-clamp-2 leading-relaxed">
-              Langkah besar untuk cabang olahraga domino modern, kepengurusan Pengprov siap menyaring atlet unggul di Kota Sorong, Raja Ampat, dan Tambrauw.
-            </p>
-</div>
-</article>
-<!-- Card 2 -->
-<article class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-<div class="h-48 bg-slate-800 relative overflow-hidden">
-<img alt="Pelantikan Pengurus" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuVozeW9uCWVVqQ1qI7WH-gKj1XYsrm3aNg1yUm_FUfZxfmw7JvRR6crltzlDDM1_5HtH0mfrcbPAquGMVHdi_DUngXyLJAEdv612UvC4UjgYHGu_aSj_ReuHVxvaQMdUncLLD--JHnaOB3CUG-Dl12_u1Wn5CPxQliyIo1XVG7NiVC4iYC9zNyyuy-6bMIEO8n9ER6h7W4YaMQfxbQzoTxl_7PCnPfGRV4tOj4lHkw9izvAWI0fflUXx7l76t0JeJr2s"/>
-<span class="absolute top-3 left-3 bg-orado-teal text-white text-[11px] font-bold px-2.5 py-1 rounded">
-              PELANTIKAN
-            </span>
-</div>
-<div class="p-5">
-<div class="text-xs text-gray-500 mb-2">18 Oktober 2024 • Sorong Convention Hall</div>
-<h3 class="font-sport font-bold text-lg text-gray-900 mb-2 hover:text-orado-red transition-colors">
-              Gubernur PBD Apresiasi Pengukuhan Pengurus Provinsi ORADO
-            </h3>
-<p class="text-sm text-gray-600 line-clamp-2 leading-relaxed">
-              Momentum penyerahan bendera pataka orado menegaskan komitmen mengangkat citra domino dari sekadar permainan rekreatif menjadi olahraga prestasi bertaraf nasional.
-            </p>
-</div>
-</article>
-<!-- Card 3 -->
-<article class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
-<div class="h-48 bg-gradient-to-tr from-slate-900 to-red-950 p-6 flex flex-col justify-end text-white relative">
-<span class="absolute top-3 left-3 bg-amber-500 text-slate-900 text-[11px] font-bold px-2.5 py-1 rounded">
-              TURNAMEN
-            </span>
-<div class="font-sport font-black text-2xl tracking-tight text-white">KEJURDA DOMINO I</div>
-<div class="text-xs text-red-200 mt-1">Piala Bergilir Pengprov Papua Barat Daya</div>
-</div>
-<div class="p-5">
-<div class="text-xs text-gray-500 mb-2">Pendaftaran: 01 - 20 November 2024</div>
-<h3 class="font-sport font-bold text-lg text-gray-900 mb-2 hover:text-orado-red transition-colors">
-              Pendaftaran Kejuaraan Daerah Terbuka Se-Papua Barat Daya Telah Dibuka
-            </h3>
-<p class="text-sm text-gray-600 line-clamp-2 leading-relaxed">
-              Kategori ganda putra dan ganda campuran dengan total hadiah puluhan juta rupiah sekaligus seleksi menuju Kejurnas Domino Indonesia 2025.
-            </p>
-</div>
-</article>
-</div>
-</div>
-</section>
-<!-- END: LatestNewsAndEvents -->
-<!-- BEGIN: MainFooter -->
-<footer class="bg-slate-900 text-gray-300 border-t-4 border-orado-crimson" data-purpose="site-footer">
-<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-<div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-<!-- Column 1: Organization Description -->
-<div class="md:col-span-2 space-y-4">
-<div class="flex items-center gap-3">
-<img src="logo.png" alt="Logo ORADO Papua Barat Daya" class="w-16 h-16 object-contain flex-shrink-0" />
-<div>
-  <span class="font-sport font-black text-2xl text-white tracking-wider block">ORADO</span>
-  <span class="text-xs font-semibold text-gray-400">PAPUA BARAT DAYA</span>
-</div>
-</div>
-<p class="text-sm text-gray-400 max-w-md leading-relaxed">
-            Federasi Olahraga Domino Nasional (ORADO) Pengurus Provinsi Papua Barat Daya. Wadah resmi pembinaan, standardisasi kompetisi, dan pengembangan atlet domino berprestasi di tingkat regional maupun nasional.
+          <p class="text-base sm:text-lg text-gray-200 leading-relaxed drop-shadow">
+            Momentum bersejarah deklarasi nasional ORADO bersama seluruh pengurus provinsi se-Indonesia, menandai era baru olahraga domino di kancah nasional.
           </p>
-<div class="text-xs text-gray-400 space-y-1">
-<p><strong class="text-white">Sekretariat Pengprov:</strong> Jl. Basuki Rahmat Km. 9,5, Kota Sorong, Papua Barat Daya</p>
-<p><strong class="text-white">Email:</strong> sekretariat@pbd.orado.co.id</p>
-</div>
-</div>
-<!-- Column 2: Quick Links -->
-<div>
-<h4 class="font-sport text-sm font-bold text-white uppercase tracking-wider mb-3">Tautan Cepat</h4>
-<ul class="space-y-2 text-sm text-gray-400">
-<li><a class="hover:text-white transition-colors" href="#">Struktur Kepengurusan</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Aturan Baku Domino Nasional</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Database Atlet &amp; Klub</a></li>
-<li><a class="hover:text-white transition-colors" href="#">Pendaftaran Turnamen</a></li>
-<li><a class="hover:text-white transition-colors" href="#">KONI Papua Barat Daya</a></li>
-</ul>
-</div>
-<!-- Column 3: Slogan & Verification -->
-<div>
-<h4 class="font-sport text-sm font-bold text-white uppercase tracking-wider mb-3">Semboyan Kami</h4>
-<div class="p-3.5 bg-slate-800 rounded border border-slate-700 space-y-2">
-<span class="text-xs uppercase font-extrabold text-red-400 tracking-wider block">ORADO Indonesia</span>
-<p class="font-sport text-sm font-bold text-white">"Olahraga, Sportivitas, dan Prestasi untuk Kejayaan Bangsa"</p>
-</div>
-</div>
-</div>
-<!-- Copyright Bottom -->
-<div class="mt-12 pt-6 border-t border-slate-800 text-xs text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-3">
-<p>© 2024 - 2026 ORADO (Federasi Olahraga Domino Nasional). Seluruh hak cipta dilindungi undang-undang.</p>
-<p class="text-gray-400">Pengprov Papua Barat Daya</p>
-</div>
-</div>
+          <div class="pt-4 flex items-center gap-4">
+            <a class="px-6 py-3 bg-white text-gray-900 hover:bg-gray-100 font-bold text-sm rounded shadow-lg transition-all" href="#galeri">Lihat Dokumentasi</a>
+            <span class="text-sm font-semibold text-gray-300">Jakarta, Indonesia</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 3: Deklarasi – Penyerahan Piagam ── -->
+    <div class="carousel-slide min-h-[520px] lg:h-[680px] flex items-center relative">
+      <img src="slide_deklarasi2.jpg" alt="Penyerahan Piagam ORADO" class="absolute inset-0 w-full h-full object-cover object-center"/>
+      <div class="absolute inset-0 slide-photo-overlay"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-16">
+        <div class="max-w-2xl space-y-4 text-white">
+          <span class="inline-flex items-center gap-2 px-3 py-1 bg-orado-teal text-white text-xs uppercase font-bold tracking-wider rounded-md">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Pengukuhan Resmi
+          </span>
+          <h2 class="font-sport text-3xl sm:text-5xl font-black uppercase text-white leading-tight drop-shadow-lg">
+            ORADO Papua Barat Daya<br/>Resmi Dikukuhkan<br/><span class="text-orado-crimson">di Tingkat Nasional</span>
+          </h2>
+          <p class="text-base sm:text-lg text-gray-200 leading-relaxed drop-shadow">
+            Penyerahan pataka dan piagam resmi dari Pengurus Besar ORADO kepada Pengprov Papua Barat Daya sebagai bukti komitmen membangun prestasi domino.
+          </p>
+          <div class="pt-4 flex items-center gap-4">
+            <a class="px-6 py-3 bg-orado-crimson hover:bg-orado-darkred font-bold text-sm rounded shadow-lg transition-all" href="#turnamen">Info Turnamen</a>
+            <span class="text-sm font-semibold text-gray-300">Deklarasi Nasional ORADO</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 4: Foto Bersama Nasional ── -->
+    <div class="carousel-slide min-h-[520px] lg:h-[680px] flex items-center relative">
+      <img src="slide_deklarasi3.jpg" alt="Foto Bersama ORADO Nasional" class="absolute inset-0 w-full h-full object-cover object-top"/>
+      <div class="absolute inset-0 slide-photo-overlay"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-16">
+        <div class="max-w-2xl space-y-4 text-white">
+          <span class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500 text-slate-900 text-xs uppercase font-bold tracking-wider rounded-md">
+            <span class="w-2 h-2 rounded-full bg-slate-900 animate-pulse"></span> Kebersamaan Nasional
+          </span>
+          <h2 class="font-sport text-3xl sm:text-5xl font-black uppercase text-white leading-tight drop-shadow-lg">
+            Bersatu dalam<br/>Satu Federasi<br/><span class="text-amber-400">ORADO Indonesia</span>
+          </h2>
+          <p class="text-base sm:text-lg text-gray-200 leading-relaxed drop-shadow">
+            Seluruh pengurus provinsi dan daerah ORADO se-Indonesia bersatu dalam semangat olahraga, sportivitas, dan prestasi untuk kejayaan bangsa.
+          </p>
+          <div class="pt-4 flex items-center gap-4">
+            <a class="px-6 py-3 bg-white text-gray-900 hover:bg-gray-100 font-bold text-sm rounded shadow-lg transition-all" href="#galeri">Lihat Galeri Lengkap</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 5: Lomba Domino HUT TNI ── -->
+    <div class="carousel-slide min-h-[520px] lg:h-[680px] flex items-center relative">
+      <img src="slide_lomba.jpg" alt="Lomba Domino ORADO HUT TNI" class="absolute inset-0 w-full h-full object-cover object-center"/>
+      <div class="absolute inset-0 slide-photo-overlay"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-16">
+        <div class="max-w-2xl space-y-4 text-white">
+          <span class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500 text-slate-900 text-xs uppercase font-bold tracking-wider rounded-md">
+            <span class="w-2 h-2 rounded-full bg-slate-900 animate-pulse"></span> Turnamen Resmi
+          </span>
+          <h2 class="font-sport text-3xl sm:text-5xl font-black uppercase text-white leading-tight drop-shadow-lg">
+            Lomba Domino ORADO<br/>Piala Panglima TNI<br/><span class="text-amber-400">Rekor MURI</span>
+          </h2>
+          <p class="text-base sm:text-lg text-gray-200 leading-relaxed drop-shadow">
+            Lomba Domino ORADO dalam rangka HUT TNI ke-81 memperebutkan Piala Panglima TNI dengan total hadiah Rp75 Juta. Pertandingan 27–28 September 2026, Sorong.
+          </p>
+          <div class="pt-4 flex items-center gap-4">
+            <a class="px-6 py-3 bg-orado-crimson hover:bg-orado-darkred font-bold text-sm rounded shadow-lg transition-all" href="#turnamen">Daftar Sekarang</a>
+            <span class="text-sm font-semibold text-gray-300">📍 Batalyon 762/VYS, Sorong</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── SLIDE 6: Rapat Pengurus ── -->
+    <div class="carousel-slide min-h-[520px] lg:h-[680px] flex items-center relative">
+      <img src="slide_rapat.jpg" alt="Rapat Pengurus ORADO Papua Barat Daya" class="absolute inset-0 w-full h-full object-cover object-center"/>
+      <div class="absolute inset-0 slide-photo-overlay"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full relative z-10 py-16">
+        <div class="max-w-2xl space-y-4 text-white">
+          <span class="inline-flex items-center gap-2 px-3 py-1 bg-orado-teal text-white text-xs uppercase font-bold tracking-wider rounded-md">
+            <span class="w-2 h-2 rounded-full bg-white animate-pulse"></span> Kepengurusan
+          </span>
+          <h2 class="font-sport text-3xl sm:text-5xl font-black uppercase text-white leading-tight drop-shadow-lg">
+            Rapat Pengurus<br/>ORADO Papua Barat Daya<br/><span class="text-orado-crimson">2026–2030</span>
+          </h2>
+          <p class="text-base sm:text-lg text-gray-200 leading-relaxed drop-shadow">
+            Jajaran pengurus Pengprov ORADO Papua Barat Daya masa bakti 2026–2030 berkomitmen membangun ekosistem olahraga domino yang profesional dan berprestasi.
+          </p>
+          <div class="pt-4 flex items-center gap-4">
+            <a class="px-6 py-3 bg-white text-gray-900 hover:bg-gray-100 font-bold text-sm rounded shadow-lg transition-all" href="#tentang">Profil Pengurus</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /carousel-track -->
+
+  <!-- Tombol Prev / Next -->
+  <button aria-label="Slide Sebelumnya" id="prevBtn"
+    class="absolute left-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/40 hover:bg-orado-crimson text-white flex items-center justify-center backdrop-blur-sm border border-white/20 transition-all focus:outline-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg>
+  </button>
+  <button aria-label="Slide Selanjutnya" id="nextBtn"
+    class="absolute right-3 top-1/2 -translate-y-1/2 z-30 w-11 h-11 rounded-full bg-black/40 hover:bg-orado-crimson text-white flex items-center justify-center backdrop-blur-sm border border-white/20 transition-all focus:outline-none">
+    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"/></svg>
+  </button>
+
+  <!-- Dots -->
+  <div class="absolute bottom-5 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2" id="dotsContainer"></div>
+
+</section>
+
+<!-- ═══════════════════════════════════════
+     STATS STRIP
+═══════════════════════════════════════ -->
+<section class="bg-white border-b border-gray-200 py-7 shadow-sm" id="stats">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-center divide-y md:divide-y-0 md:divide-x divide-gray-200">
+      <div class="pt-4 md:pt-0">
+        <p class="font-sport text-3xl font-extrabold text-orado-red">6 Wilayah</p>
+        <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mt-1">Pengcab Kota &amp; Kab. PBD</p>
+      </div>
+      <div class="pt-4 md:pt-0">
+        <p class="font-sport text-3xl font-extrabold text-slate-800">420+</p>
+        <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mt-1">Atlet Domino Terdaftar</p>
+      </div>
+      <div class="pt-4 md:pt-0">
+        <p class="font-sport text-3xl font-extrabold text-orado-teal">12 Klub</p>
+        <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mt-1">Komunitas Domino Resmi</p>
+      </div>
+      <div class="pt-4 md:pt-0">
+        <p class="font-sport text-3xl font-extrabold text-amber-600">Kejurda I</p>
+        <p class="text-xs text-gray-500 font-medium uppercase tracking-wider mt-1">Mendatang di Sorong</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     BERITA & AGENDA
+═══════════════════════════════════════ -->
+<section class="py-14 bg-gray-50" id="turnamen">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-4 border-b border-gray-200">
+      <div>
+        <span class="text-xs font-bold text-orado-red uppercase tracking-widest">Informasi Terkini</span>
+        <h2 class="font-sport text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Agenda &amp; Berita Pengprov ORADO Papua Barat Daya</h2>
+      </div>
+      <a class="mt-4 md:mt-0 text-sm font-bold text-orado-teal hover:text-orado-tealhover flex items-center gap-1.5" href="#">
+        Lihat Semua Agenda
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M9 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
+      </a>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- Card 1 -->
+      <article class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="h-48 relative overflow-hidden">
+          <img src="slide_deklarasi2.jpg" alt="KONI Papua Barat Daya" class="w-full h-full object-cover"/>
+          <span class="absolute top-3 left-3 bg-orado-crimson text-white text-[11px] font-bold px-2.5 py-1 rounded">RESMI</span>
+        </div>
+        <div class="p-5">
+          <div class="text-xs text-gray-500 mb-2">24 Oktober 2024 • Sekretariat ORADO PBD</div>
+          <h3 class="font-sport font-bold text-lg text-gray-900 mb-2 hover:text-orado-red transition-colors">ORADO Papua Barat Daya Resmi Diterima Jadi Anggota KONI Daerah</h3>
+          <p class="text-sm text-gray-600 line-clamp-2 leading-relaxed">Langkah besar untuk cabang olahraga domino modern, kepengurusan Pengprov siap menyaring atlet unggul di Kota Sorong, Raja Ampat, dan Tambrauw.</p>
+        </div>
+      </article>
+      <!-- Card 2 -->
+      <article class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="h-48 relative overflow-hidden">
+          <img src="slide_deklarasi1.jpg" alt="Pelantikan Pengurus" class="w-full h-full object-cover"/>
+          <span class="absolute top-3 left-3 bg-orado-teal text-white text-[11px] font-bold px-2.5 py-1 rounded">PELANTIKAN</span>
+        </div>
+        <div class="p-5">
+          <div class="text-xs text-gray-500 mb-2">18 Oktober 2024 • Sorong Convention Hall</div>
+          <h3 class="font-sport font-bold text-lg text-gray-900 mb-2 hover:text-orado-red transition-colors">Gubernur PBD Apresiasi Pengukuhan Pengurus Provinsi ORADO</h3>
+          <p class="text-sm text-gray-600 line-clamp-2 leading-relaxed">Momentum penyerahan bendera pataka ORADO menegaskan komitmen mengangkat citra domino menjadi olahraga prestasi bertaraf nasional.</p>
+        </div>
+      </article>
+      <!-- Card 3 -->
+      <article class="bg-white rounded-lg border border-gray-200 overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="h-48 bg-gradient-to-tr from-slate-900 to-red-950 relative overflow-hidden flex flex-col justify-end p-5">
+          <span class="absolute top-3 left-3 bg-amber-500 text-slate-900 text-[11px] font-bold px-2.5 py-1 rounded">TURNAMEN</span>
+          <div class="font-sport font-black text-2xl tracking-tight text-white">KEJURDA DOMINO I</div>
+          <div class="text-xs text-red-200 mt-1">Piala Bergilir Pengprov Papua Barat Daya</div>
+        </div>
+        <div class="p-5">
+          <div class="text-xs text-gray-500 mb-2">Pendaftaran: 01 - 20 November 2026</div>
+          <h3 class="font-sport font-bold text-lg text-gray-900 mb-2 hover:text-orado-red transition-colors">Pendaftaran Kejuaraan Daerah Terbuka Se-Papua Barat Daya Telah Dibuka</h3>
+          <p class="text-sm text-gray-600 line-clamp-2 leading-relaxed">Kategori ganda putra dan ganda campuran dengan total hadiah puluhan juta rupiah sekaligus seleksi menuju Kejurnas Domino Indonesia 2027.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     GALERI
+═══════════════════════════════════════ -->
+<section class="py-14 bg-white" id="galeri">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <span class="text-xs font-bold text-orado-red uppercase tracking-widest">Dokumentasi</span>
+      <h2 class="font-sport text-2xl sm:text-3xl font-bold text-gray-900 mt-1">Galeri Kegiatan ORADO Papua Barat Daya</h2>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+      <div class="col-span-2 md:col-span-1 row-span-2 rounded-xl overflow-hidden h-64 md:h-auto">
+        <img src="slide_deklarasi3.jpg" alt="Foto Bersama Deklarasi Nasional" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+      </div>
+      <div class="rounded-xl overflow-hidden h-48">
+        <img src="slide_deklarasi1.jpg" alt="Deklarasi Nasional" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+      </div>
+      <div class="rounded-xl overflow-hidden h-48">
+        <img src="slide_deklarasi2.jpg" alt="Penyerahan Piagam" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+      </div>
+      <div class="rounded-xl overflow-hidden h-48">
+        <img src="slide_lomba.jpg" alt="Lomba Domino HUT TNI" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+      </div>
+      <div class="rounded-xl overflow-hidden h-48">
+        <img src="slide_rapat.jpg" alt="Rapat Pengurus" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500"/>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════ -->
+<footer class="bg-slate-900 text-gray-300 border-t-4 border-orado-crimson">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <!-- Brand -->
+      <div class="md:col-span-2 space-y-4">
+        <div class="flex items-center gap-3">
+          <img src="logo.png" alt="Logo ORADO Papua Barat Daya" class="w-16 h-16 object-contain flex-shrink-0"/>
+          <div>
+            <span class="font-sport font-black text-2xl text-white tracking-wider block">ORADO</span>
+            <span class="text-xs font-semibold text-gray-400">PAPUA BARAT DAYA</span>
+          </div>
+        </div>
+        <p class="text-sm text-gray-400 max-w-md leading-relaxed">Federasi Olahraga Domino Nasional (ORADO) Pengurus Provinsi Papua Barat Daya. Wadah resmi pembinaan, standardisasi kompetisi, dan pengembangan atlet domino berprestasi.</p>
+        <div class="text-xs text-gray-400 space-y-1">
+          <p><strong class="text-white">Sekretariat:</strong> Jl. Basuki Rahmat Km. 9,5, Kota Sorong, Papua Barat Daya</p>
+          <p><strong class="text-white">Email:</strong> sekretariat@pbd.orado.co.id</p>
+        </div>
+      </div>
+      <!-- Links -->
+      <div>
+        <h4 class="font-sport text-sm font-bold text-white uppercase tracking-wider mb-3">Tautan Cepat</h4>
+        <ul class="space-y-2 text-sm text-gray-400">
+          <li><a class="hover:text-white transition-colors" href="#">Struktur Kepengurusan</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Aturan Baku Domino Nasional</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Database Atlet &amp; Klub</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">Pendaftaran Turnamen</a></li>
+          <li><a class="hover:text-white transition-colors" href="#">KONI Papua Barat Daya</a></li>
+        </ul>
+      </div>
+      <!-- Semboyan -->
+      <div>
+        <h4 class="font-sport text-sm font-bold text-white uppercase tracking-wider mb-3">Semboyan Kami</h4>
+        <div class="p-3.5 bg-slate-800 rounded border border-slate-700 space-y-2">
+          <span class="text-xs uppercase font-extrabold text-red-400 tracking-wider block">ORADO Indonesia</span>
+          <p class="font-sport text-sm font-bold text-white">"Olahraga, Sportivitas, dan Prestasi untuk Kejayaan Bangsa"</p>
+        </div>
+      </div>
+    </div>
+    <!-- Copyright -->
+    <div class="mt-12 pt-6 border-t border-slate-800 text-xs text-gray-400 flex flex-col sm:flex-row justify-between items-center gap-3">
+      <p>© 2024–2026 ORADO (Federasi Olahraga Domino Nasional). Seluruh hak cipta dilindungi.</p>
+      <p>Pengprov Papua Barat Daya</p>
+    </div>
+  </div>
 </footer>
-<!-- END: MainFooter -->
-<!-- BEGIN: CarouselInteractiveScript -->
-<script data-purpose="carousel-logic">
-    (function () {
-      const slides = [
-        document.getElementById('slide-1'),
-        document.getElementById('slide-2')
-      ];
-      const dots = document.querySelectorAll('.carousel-dot');
-      const prevBtn = document.getElementById('prevSlideBtn');
-      const nextBtn = document.getElementById('nextSlideBtn');
-      let currentSlide = 0;
-      let timer = null;
 
-      function updateSlide(index) {
-        slides.forEach((slide, i) => {
-          if (i === index) {
-            slide.classList.remove('opacity-0', 'pointer-events-none');
-            slide.classList.add('opacity-100', 'z-20');
-            slide.classList.remove('z-10');
-          } else {
-            slide.classList.add('opacity-0', 'pointer-events-none');
-            slide.classList.remove('opacity-100', 'z-20');
-            slide.classList.add('z-10');
-          }
-        });
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT: Slider kiri + Mobile menu
+═══════════════════════════════════════ -->
+<script>
+(function () {
+  const track    = document.getElementById('carouselTrack');
+  const prevBtn  = document.getElementById('prevBtn');
+  const nextBtn  = document.getElementById('nextBtn');
+  const dotsWrap = document.getElementById('dotsContainer');
+  const TOTAL    = track.children.length;
+  let current    = 0;
+  let autoTimer  = null;
 
-        // Update indicators
-        dots.forEach((dot, i) => {
-          if (i === index) {
-            dot.classList.remove('w-2.5', 'bg-white/50');
-            dot.classList.add('w-8', 'bg-orado-crimson');
-          } else {
-            dot.classList.add('w-2.5', 'bg-white/50');
-            dot.classList.remove('w-8', 'bg-orado-crimson');
-          }
-        });
+  /* ── Buat dots ── */
+  const dots = [];
+  for (let i = 0; i < TOTAL; i++) {
+    const d = document.createElement('button');
+    d.setAttribute('aria-label', `Slide ${i + 1}`);
+    d.className = 'h-2.5 rounded-full transition-all duration-300 ' + (i === 0 ? 'w-8 bg-orado-crimson' : 'w-2.5 bg-white/50 hover:bg-white');
+    d.addEventListener('click', () => { goTo(i); resetAuto(); });
+    dotsWrap.appendChild(d);
+    dots.push(d);
+  }
 
-        currentSlide = index;
+  function updateDots() {
+    dots.forEach((d, i) => {
+      if (i === current) {
+        d.className = 'h-2.5 rounded-full transition-all duration-300 w-8 bg-orado-crimson';
+      } else {
+        d.className = 'h-2.5 rounded-full transition-all duration-300 w-2.5 bg-white/50 hover:bg-white';
       }
+    });
+  }
 
-      function nextSlide() {
-        const next = (currentSlide + 1) % slides.length;
-        updateSlide(next);
-      }
+  /* ── Geser ke kiri ── */
+  function goTo(index) {
+    current = (index + TOTAL) % TOTAL;
+    track.style.transform = `translateX(-${current * 100}%)`;
+    updateDots();
+  }
 
-      function prevSlide() {
-        const prev = (currentSlide - 1 + slides.length) % slides.length;
-        updateSlide(prev);
-      }
+  function next() { goTo(current + 1); }
+  function prev() { goTo(current - 1); }
 
-      function resetAutoPlay() {
-        if (timer) clearInterval(timer);
-        timer = setInterval(nextSlide, 6000);
-      }
+  function resetAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(next, 5500);
+  }
 
-      // Event listeners for prev/next buttons
-      if (nextBtn) {
-        nextBtn.addEventListener('click', () => {
-          nextSlide();
-          resetAutoPlay();
-        });
-      }
+  nextBtn.addEventListener('click', () => { next(); resetAuto(); });
+  prevBtn.addEventListener('click', () => { prev(); resetAuto(); });
 
-      if (prevBtn) {
-        prevBtn.addEventListener('click', () => {
-          prevSlide();
-          resetAutoPlay();
-        });
-      }
+  /* Touch / swipe */
+  let startX = 0;
+  track.addEventListener('touchstart', e => { startX = e.changedTouches[0].clientX; }, { passive: true });
+  track.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) { dx < 0 ? next() : prev(); resetAuto(); }
+  }, { passive: true });
 
-      // Indicator dots click
-      dots.forEach((dot, idx) => {
-        dot.addEventListener('click', () => {
-          updateSlide(idx);
-          resetAutoPlay();
-        });
-      });
+  resetAuto();
 
-      // Start auto rotation
-      resetAutoPlay();
-    })();
-  </script>
-<!-- END: CarouselInteractiveScript -->
-</body></html>
+  /* ── Mobile menu ── */
+  const menuBtn  = document.getElementById('mobileMenuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+})();
+</script>
+
+</body>
+</html>
