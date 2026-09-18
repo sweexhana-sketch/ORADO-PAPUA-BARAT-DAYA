@@ -59,6 +59,17 @@
     .gradient-hero-navy {
       background: radial-gradient(circle at 20% 50%, #172740 0%, #07101e 70%, #03070d 100%);
     }
+    @keyframes floatLogo {
+      0%, 100% { transform: translateY(0px); }
+      50%       { transform: translateY(-14px); }
+    }
+    .logo-glow-pulse {
+      animation: logoPulse 3s ease-in-out infinite;
+    }
+    @keyframes logoPulse {
+      0%, 100% { filter: drop-shadow(0 0 24px rgba(198,40,40,0.4)) drop-shadow(0 8px 24px rgba(0,0,0,0.8)); }
+      50%       { filter: drop-shadow(0 0 48px rgba(198,40,40,0.75)) drop-shadow(0 8px 32px rgba(0,0,0,0.9)); }
+    }
   </style>
 </head>
 <body class="bg-gray-50 text-gray-800 antialiased selection:bg-orado-crimson selection:text-white">
@@ -69,23 +80,9 @@
 <!-- Brand Identity / Logo Section -->
 <div class="flex items-center gap-3">
 <a class="flex items-center gap-3 group" href="#" title="Beranda ORADO Papua Barat Daya">
-<!-- Emulated ORADO Official Crest Icon -->
-<div class="relative w-12 h-12 flex-shrink-0 flex items-center justify-center rounded-full bg-gradient-to-tr from-orado-darkred to-orado-crimson p-0.5 shadow-md">
-<div class="w-full h-full rounded-full bg-white flex items-center justify-center p-1.5 overflow-hidden">
-<!-- SVG Garuda Shield Crest Motif -->
-<svg class="w-full h-full text-orado-red" fill="currentColor" viewbox="0 0 100 100">
-<path d="M50 3 L85 18 C85 60 50 95 50 95 C50 95 15 60 15 18 Z" fill="#b91c1c"></path>
-<path d="M50 10 L78 22 C78 55 50 85 50 85 C50 85 22 55 22 22 Z" fill="#ffffff"></path>
-<circle cx="50" cy="40" fill="#b91c1c" r="14"></circle>
-<!-- Torch Flame -->
-<path d="M50 25 C55 33 46 36 50 44 C42 40 46 29 50 25 Z" fill="#fbbf24"></path>
-<!-- Wings / Domino Dots -->
-<circle cx="43" cy="58" fill="#1e293b" r="3.5"></circle>
-<circle cx="57" cy="58" fill="#1e293b" r="3.5"></circle>
-<circle cx="43" cy="68" fill="#1e293b" r="3.5"></circle>
-<circle cx="57" cy="68" fill="#1e293b" r="3.5"></circle>
-</svg>
-</div>
+<!-- Logo Resmi ORADO Papua Barat Daya -->
+<div class="relative w-14 h-14 flex-shrink-0 flex items-center justify-center">
+<img src="logo.png" alt="Logo ORADO Papua Barat Daya" class="w-full h-full object-contain drop-shadow-md" />
 </div>
 <!-- Logo Text Representation -->
 <div class="flex flex-col">
@@ -162,48 +159,15 @@
 </div>
 <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full py-12 relative z-10">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
-<!-- Left Side: 3D Emblem Crest -->
+<!-- Left Side: Logo Resmi ORADO Papua Barat Daya -->
 <div class="lg:col-span-5 flex justify-center lg:justify-start">
-<div class="relative w-64 h-72 sm:w-80 sm:h-96 md:w-96 md:h-[420px] flex items-center justify-center filter drop-shadow-[0_20px_35px_rgba(0,0,0,0.85)]">
-<!-- 3D Metallic Shield Frame Replica -->
-<div class="w-full h-full relative rounded-3xl p-3 border-2 border-slate-600/40 bg-gradient-to-b from-slate-700 via-slate-900 to-black shadow-2xl flex flex-col items-center justify-center text-center overflow-hidden">
-<!-- Curved Header inside shield -->
-<div class="absolute top-4 w-full flex justify-center">
-<span class="font-sport text-3xl sm:text-4xl font-black tracking-widest text-transparent bg-clip-text bg-gradient-to-b from-red-400 via-red-600 to-red-800 drop-shadow-md">
-                      ORADO
-                    </span>
-</div>
-<!-- Center Phoenix / Garuda Emblem Symbol with Fire Torch -->
-<div class="my-auto w-36 h-36 sm:w-44 sm:h-44 rounded-full border-4 border-red-700/60 flex items-center justify-center bg-gradient-to-b from-red-950/60 to-black shadow-inner relative">
-<svg class="w-28 h-28 drop-shadow-lg text-red-500" fill="currentColor" viewbox="0 0 120 120">
-<!-- Stylized Phoenix / Eagle Wings -->
-<path d="M60 20 C64 35 52 42 60 52 C50 48 55 32 60 20 Z" fill="#f87171"></path>
-<path d="M60 52 C45 35 25 45 20 65 C32 62 42 70 52 68 C45 74 35 78 28 85 C42 85 52 78 60 72 Z" fill="#ef4444"></path>
-<path d="M60 52 C75 35 95 45 100 65 C88 62 78 70 68 68 C75 74 85 78 92 85 C78 85 68 78 60 72 Z" fill="#ef4444"></path>
-<!-- Torch Handle -->
-<rect fill="#991b1b" height="28" rx="2" stroke="#fca5a5" stroke-width="1" width="8" x="56" y="75"></rect>
-<!-- Torch Fire -->
-<path d="M60 62 C65 67 68 72 60 76 C52 72 55 67 60 62 Z" fill="#facc15"></path>
-</svg>
-</div>
-<!-- Domino Tiles at Bottom of Shield -->
-<div class="flex gap-2 items-center mb-6">
-<div class="w-8 h-12 bg-white rounded border border-gray-300 shadow flex flex-col justify-between p-1">
-<div class="flex justify-around"><span class="w-1.5 h-1.5 bg-black rounded-full"></span><span class="w-1.5 h-1.5 bg-black rounded-full"></span></div>
-<div class="w-full h-0.5 bg-gray-400"></div>
-<div class="flex justify-center"><span class="w-1.5 h-1.5 bg-black rounded-full"></span></div>
-</div>
-<div class="w-8 h-12 bg-white rounded border border-gray-300 shadow flex flex-col justify-between p-1 rotate-12">
-<div class="flex justify-around"><span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span><span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span></div>
-<div class="w-full h-0.5 bg-gray-400"></div>
-<div class="flex justify-around"><span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span><span class="w-1.5 h-1.5 bg-red-600 rounded-full"></span></div>
-</div>
-</div>
-<!-- Subtitle Ribbon -->
-<div class="absolute bottom-3 text-center px-2">
-<span class="text-[11px] uppercase tracking-wider font-semibold text-gray-300">Federasi Olahraga Domino Nasional</span>
-</div>
-</div>
+<div class="relative flex items-center justify-center filter drop-shadow-[0_20px_40px_rgba(0,0,0,0.9)]" style="animation: floatLogo 4s ease-in-out infinite;">
+<img
+  src="logo.png"
+  alt="Logo ORADO Papua Barat Daya"
+  class="w-64 sm:w-80 md:w-96 h-auto object-contain"
+  style="filter: drop-shadow(0 0 32px rgba(198,40,40,0.5)) drop-shadow(0 8px 24px rgba(0,0,0,0.8));"
+/>
 </div>
 </div>
 <!-- Right Side: Headline, KONI Badge, Subtitle & Slogan -->
@@ -413,9 +377,12 @@
 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
 <!-- Column 1: Organization Description -->
 <div class="md:col-span-2 space-y-4">
-<div class="flex items-center gap-2">
-<span class="font-sport font-black text-2xl text-white tracking-wider">ORADO</span>
-<span class="text-xs font-semibold text-gray-400">PAPUA BARAT DAYA</span>
+<div class="flex items-center gap-3">
+<img src="logo.png" alt="Logo ORADO Papua Barat Daya" class="w-16 h-16 object-contain flex-shrink-0" />
+<div>
+  <span class="font-sport font-black text-2xl text-white tracking-wider block">ORADO</span>
+  <span class="text-xs font-semibold text-gray-400">PAPUA BARAT DAYA</span>
+</div>
 </div>
 <p class="text-sm text-gray-400 max-w-md leading-relaxed">
             Federasi Olahraga Domino Nasional (ORADO) Pengurus Provinsi Papua Barat Daya. Wadah resmi pembinaan, standardisasi kompetisi, dan pengembangan atlet domino berprestasi di tingkat regional maupun nasional.
