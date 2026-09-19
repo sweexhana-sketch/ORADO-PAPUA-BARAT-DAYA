@@ -116,8 +116,8 @@
 
       <!-- CTA Buttons -->
       <div class="flex items-center gap-2">
-        <a class="px-4 py-2 text-sm font-semibold rounded bg-orado-teal text-white hover:bg-orado-tealhover transition-all shadow-sm" href="#daftar">Daftar Akun</a>
-        <a class="px-4 py-2 text-sm font-medium rounded border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 transition-all shadow-sm hidden sm:inline-flex" href="#masuk">Masuk</a>
+        <button class="px-4 py-2 text-sm font-semibold rounded bg-orado-teal text-white hover:bg-orado-tealhover transition-all shadow-sm" onclick="openModal('registerModal')">Daftar Akun</button>
+        <button class="px-4 py-2 text-sm font-medium rounded border border-gray-300 text-gray-700 bg-white hover:bg-gray-50 transition-all shadow-sm hidden sm:inline-flex" onclick="openModal('loginModal')">Masuk</button>
         <!-- Hamburger mobile -->
         <button class="lg:hidden ml-1 p-2 rounded bg-orado-teal text-white" id="mobileMenuBtn" aria-label="Menu">
           <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M4 6h16M4 12h16M4 18h16" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/></svg>
@@ -130,12 +130,15 @@
   <div id="mobileMenu" class="hidden lg:hidden bg-white border-t border-gray-100 px-4 pb-4">
     <nav class="flex flex-col gap-1 pt-2">
       <a class="py-2 px-3 font-bold text-sky-700 rounded" href="#">Beranda</a>
-      <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#">Tentang Kami</a>
+      <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#tentang">Tentang Kami</a>
       <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#galeri">Galeri</a>
       <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#kejurnas">Kejurnas</a>
       <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#turnamen">Turnamen</a>
       <a class="py-2 px-3 text-gray-600 hover:text-orado-red rounded" href="#latihan">Latihan</a>
-    </nav>
+      <div class="border-t border-gray-100 mt-2 pt-2 flex flex-col gap-2">
+        <button class="py-2 px-3 bg-orado-teal text-white rounded font-semibold w-full text-left" onclick="openModal('registerModal')">Daftar Akun</button>
+        <button class="py-2 px-3 border border-gray-300 text-gray-700 bg-white rounded font-semibold w-full text-left" onclick="openModal('loginModal')">Masuk</button>
+      </div>
   </div>
 </header>
 
@@ -424,6 +427,189 @@
     </div>
   </div>
 </section>
+
+<!-- ═══════════════════════════════════════
+     TENTANG KAMI SECTION
+═══════════════════════════════════════ -->
+<section class="py-14 bg-gray-50" id="tentang">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="font-sport text-3xl font-black uppercase text-slate-900 tracking-tight">Tentang <span class="text-orado-crimson">Kami</span></h2>
+      <p class="text-gray-500 mt-2">Mengenal lebih dekat ORADO Papua Barat Daya.</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm p-6 lg:p-10 border border-gray-100 flex flex-col md:flex-row gap-8 items-center">
+      <div class="w-full md:w-1/3">
+        <img src="logo.png" alt="Logo ORADO" class="w-48 h-48 object-contain mx-auto">
+      </div>
+      <div class="w-full md:w-2/3 space-y-4">
+        <h3 class="text-xl font-bold text-slate-900">Federasi Olahraga Domino Nasional</h3>
+        <p class="text-gray-600 leading-relaxed">
+          ORADO Pengprov Papua Barat Daya adalah wadah resmi yang mengayomi seluruh klub dan atlet olahraga domino di Provinsi Papua Barat Daya.
+          Tujuan kami adalah menghapus stigma negatif tentang domino dan membuktikan bahwa domino adalah olahraga asah otak yang diakui secara nasional di bawah naungan KONI.
+        </p>
+        <p class="text-gray-600 leading-relaxed">
+          Melalui pembinaan berjenjang, kami berkomitmen melahirkan atlet berprestasi yang mampu mengharumkan nama daerah di kancah nasional maupun internasional.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     KEJURNAS SECTION
+═══════════════════════════════════════ -->
+<section class="py-14 bg-white" id="kejurnas">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="font-sport text-3xl font-black uppercase text-slate-900 tracking-tight">Kejuaraan <span class="text-orado-crimson">Nasional</span></h2>
+      <p class="text-gray-500 mt-2">Berita dan informasi Kejurnas terbaru.</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="bg-slate-50 border border-gray-200 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-shadow">
+        <div class="h-48 bg-gray-200 relative">
+          <img src="slide_deklarasi2.jpg" alt="Kejurnas" class="w-full h-full object-cover">
+          <span class="absolute top-2 right-2 bg-orado-crimson text-white text-xs font-bold px-2 py-1 rounded">Selesai</span>
+        </div>
+        <div class="p-5">
+          <h3 class="font-bold text-lg text-slate-900 mb-2">Kejurnas I ORADO Jakarta</h3>
+          <p class="text-sm text-gray-500 mb-4">Tim Papua Barat Daya berhasil menembus babak 8 besar pada Kejuaraan Nasional Pertama yang diselenggarakan di Jakarta.</p>
+          <button class="text-orado-teal text-sm font-semibold hover:underline">Baca Selengkapnya</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     LATIHAN SECTION
+═══════════════════════════════════════ -->
+<section class="py-14 bg-gray-50 border-b border-gray-200" id="latihan">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-10">
+      <h2 class="font-sport text-3xl font-black uppercase text-slate-900 tracking-tight">Jadwal <span class="text-orado-teal">Latihan</span></h2>
+      <p class="text-gray-500 mt-2">Pusat pelatihan daerah (Puslatda) ORADO Papua Barat Daya.</p>
+    </div>
+    <div class="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <table class="w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-slate-100 text-slate-600 text-sm uppercase tracking-wider">
+            <th class="p-4 font-bold border-b border-gray-200">Hari</th>
+            <th class="p-4 font-bold border-b border-gray-200">Waktu</th>
+            <th class="p-4 font-bold border-b border-gray-200">Lokasi</th>
+            <th class="p-4 font-bold border-b border-gray-200">Kategori</th>
+          </tr>
+        </thead>
+        <tbody class="text-sm text-gray-700 divide-y divide-gray-100">
+          <tr class="hover:bg-gray-50">
+            <td class="p-4 font-medium">Jumat</td>
+            <td class="p-4">19:00 - 22:00 WIT</td>
+            <td class="p-4">Sekretariat ORADO PBD</td>
+            <td class="p-4"><span class="bg-green-100 text-green-700 px-2 py-1 rounded text-xs font-bold">Terbuka (Klub)</span></td>
+          </tr>
+          <tr class="hover:bg-gray-50">
+            <td class="p-4 font-medium">Minggu</td>
+            <td class="p-4">14:00 - 18:00 WIT</td>
+            <td class="p-4">Sekretariat ORADO PBD</td>
+            <td class="p-4"><span class="bg-blue-100 text-blue-700 px-2 py-1 rounded text-xs font-bold">Puslatda (Atlet)</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════
+     MODAL: DAFTAR & MASUK
+═══════════════════════════════════════ -->
+<!-- Overlay -->
+<div id="modalOverlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden opacity-0 transition-opacity duration-300"></div>
+
+<!-- Register Modal -->
+<div id="registerModal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl z-[101] w-11/12 max-w-md hidden opacity-0 scale-95 transition-all duration-300">
+  <div class="p-6">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="font-sport text-2xl font-black text-slate-900 uppercase">Daftar Akun</h3>
+      <button onclick="closeModal('registerModal')" class="text-gray-400 hover:text-red-500 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Fungsi pendaftaran belum tersedia saat ini.');">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Nama Lengkap</label>
+        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orado-crimson outline-none" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+        <input type="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orado-crimson outline-none" required>
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Asal Klub / Utusan</label>
+        <input type="text" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orado-crimson outline-none">
+      </div>
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Kata Sandi</label>
+        <input type="password" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orado-crimson outline-none" required>
+      </div>
+      <button type="submit" class="w-full bg-orado-crimson text-white font-bold py-2.5 rounded-lg hover:bg-orado-darkred transition-colors shadow-md mt-2">Daftar Sekarang</button>
+    </form>
+    <p class="text-center text-sm text-gray-500 mt-4">Sudah punya akun? <button onclick="closeModal('registerModal'); openModal('loginModal');" type="button" class="text-orado-teal font-bold hover:underline">Masuk</button></p>
+  </div>
+</div>
+
+<!-- Login Modal -->
+<div id="loginModal" class="fixed top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white rounded-2xl shadow-2xl z-[101] w-11/12 max-w-sm hidden opacity-0 scale-95 transition-all duration-300">
+  <div class="p-6">
+    <div class="flex justify-between items-center mb-6">
+      <h3 class="font-sport text-2xl font-black text-slate-900 uppercase">Masuk</h3>
+      <button onclick="closeModal('loginModal')" class="text-gray-400 hover:text-red-500 transition-colors">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+      </button>
+    </div>
+    <form class="space-y-4" onsubmit="event.preventDefault(); alert('Fungsi login belum tersedia saat ini.');">
+      <div>
+        <label class="block text-sm font-medium text-gray-700 mb-1">Email</label>
+        <input type="email" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orado-teal outline-none" required>
+      </div>
+      <div>
+        <div class="flex justify-between mb-1">
+          <label class="block text-sm font-medium text-gray-700">Kata Sandi</label>
+          <a href="#" class="text-xs text-orado-teal hover:underline">Lupa sandi?</a>
+        </div>
+        <input type="password" class="w-full border border-gray-300 rounded-lg px-4 py-2 focus:ring-2 focus:ring-orado-teal outline-none" required>
+      </div>
+      <button type="submit" class="w-full bg-orado-teal text-white font-bold py-2.5 rounded-lg hover:bg-sky-700 transition-colors shadow-md mt-2">Masuk</button>
+    </form>
+    <p class="text-center text-sm text-gray-500 mt-4">Belum punya akun? <button onclick="closeModal('loginModal'); openModal('registerModal');" type="button" class="text-orado-crimson font-bold hover:underline">Daftar</button></p>
+  </div>
+</div>
+
+<script>
+  function openModal(id) {
+    const overlay = document.getElementById('modalOverlay');
+    const modal = document.getElementById(id);
+    overlay.classList.remove('hidden');
+    modal.classList.remove('hidden');
+    // Allow display block to apply before animating opacity
+    setTimeout(() => {
+      overlay.classList.remove('opacity-0');
+      modal.classList.remove('opacity-0', 'scale-95');
+    }, 10);
+  }
+  function closeModal(id) {
+    const overlay = document.getElementById('modalOverlay');
+    const modal = document.getElementById(id);
+    overlay.classList.add('opacity-0');
+    modal.classList.add('opacity-0', 'scale-95');
+    setTimeout(() => {
+      overlay.classList.add('hidden');
+      modal.classList.add('hidden');
+    }, 300);
+  }
+  document.getElementById('modalOverlay').addEventListener('click', () => {
+    closeModal('registerModal');
+    closeModal('loginModal');
+  });
+</script>
 
 <!-- ═══════════════════════════════════════
      FOOTER
